@@ -1,5 +1,6 @@
-/*! lilprovider - v0.0.0 - 2012-10-13
- * Copyright (c) 2012 August Hovland; Licensed MIT */
+/*! lilprovider - v0.0.0 - 2012-10-18
+* https://github.com/gushov/lilprovider
+ * Copyright (c) 2012 August Hovland <contact@augusthovland.com>; Licensed MIT */
 
 (function (ctx) {
 
@@ -12,7 +13,7 @@
     };
 
     ctx.require = function (path, name) {
-      return modules[name];
+      return name ? modules[name] : modules[path];
     };
 
   }

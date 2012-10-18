@@ -14,7 +14,7 @@ buster.testCase("LilProvider", {
     provide('testB', testB);
 
     assert.equals(require(null, 'testA'), testA);
-    assert.equals(require(null, 'testB'), testB);
+    assert.equals(require('testB'), testB);
 
   }
 
