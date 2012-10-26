@@ -20,15 +20,15 @@ buster.testCase("LilProvider", {
 
   "should require via define": function () {
 
-    define('packTest/packB/modB', function (require, module, exports) {
+    provide('packTest/packB/modB', function (require, module, exports) {
       module.exports = { name: 'B' };
-    });
+    }, true);
 
-    define('packTest/packA/modA', function (require, module, exports) {
+    provide('packTest/packA/modA', function (require, module, exports) {
       var b = require('../packB/modB');
       exports.name = 'A';
       exports.buddy = b.name;
-    });
+    }, true);
 
     var a = require('packTest/packA/modA');
     assert.equals(a, { name: 'A', buddy: 'B' });

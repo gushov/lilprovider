@@ -34,8 +34,14 @@
 
   //@TODO handle provide/require/define already in scope
 
-  ctx.provide = function (name, module) {
-    return exported[name] = module;
+  ctx.provide = function (name, module, isDefinition) {
+
+    if (isDefinition) {
+      return defined[name] = module;
+    } else {
+      return exported[name] = module;
+    }
+
   };
 
   ctx.require = function (path, canonical) {
@@ -57,10 +63,6 @@
 
     }
 
-  };
-
-  ctx.define = function (name, fn) {
-    return defined[name] = fn;
   };
 
 }(this));
