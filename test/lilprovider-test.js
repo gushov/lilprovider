@@ -20,18 +20,34 @@ buster.testCase("LilProvider", {
 
   "should require via define": function () {
 
+    provide('adder', function (require, module, exports) {
+      var hat = require('./packTest/packB/packC/packD/modD');
+      module.exports = function (a, b) { return a + b + hat.hat; };
+    }, true);
+
+    provide('packTest/packB/packC/packD/modD', function(require, module, exports) {
+      exports.hat = 'hat';
+    }, true);
+
+    provide('packTest/packB/modB1', function (require, module, exports) {
+      module.exports = function () { return 'B'; };
+    }, true);
+
     provide('packTest/packB/modB', function (require, module, exports) {
-      module.exports = { name: 'B' };
+      var b1 = require('./modB1');
+      module.exports = { name: b1() };
     }, true);
 
     provide('packTest/packA/modA', function (require, module, exports) {
+      var adder = require('../../adder');
       var b = require('../packB/modB');
+      var b1 = require('../packB/modB1');
       exports.name = 'A';
-      exports.buddy = b.name;
+      exports.buddy = adder(b.name, b1());
     }, true);
 
     var a = require('packTest/packA/modA');
-    assert.equals(a, { name: 'A', buddy: 'B' });
+    assert.equals(a, { name: 'A', buddy: 'BBhat' });
     
   }
 
