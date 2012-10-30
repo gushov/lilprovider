@@ -18,7 +18,7 @@ buster.testCase("LilProvider", {
 
   },
 
-  "should require via define": function () {
+  "should require via provde definition": function () {
 
     provide('adder', function (require, module, exports) {
       var hat = require('./packTest/packB/packC/packD/modD');
