@@ -1,8 +1,8 @@
 {
-  "author": "August Hovland <contact@augusthovland.com>",
+  "author": "August Hovland <gushov@gmail.com>",
   "name": "lilprovider",
   "description": "A li'l provide/require shim",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git://github.com/gushov/lilprovider.git"
@@ -10,18 +10,12 @@
   "engines": {
     "node": "~0.6.18"
   },
-  "dependencies": {},
   "devDependencies": {
     "grunt": ">= 0.3.x",
     "buster": ">= 0.6.x",
     "grunt-buster": ">= 0.1.x"
   },
-  "optionalDependencies": {},
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ],
+  "licenses": [{ "type": "MIT" }],
   "main": "dist/lilprovider",
   "scripts": {
     "test": "grunt buster"
