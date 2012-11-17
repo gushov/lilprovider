@@ -8,6 +8,8 @@ lilprovider adds provide and require methods to the current context.
 
 ## Basic usage
 
+create and provide your module:
+
 ```javascript
 (function () {
 
@@ -18,12 +20,15 @@ lilprovider adds provide and require methods to the current context.
   provide('blender', blender);
 
 }());
+```
 
+then somewhere else require and use your module:
+
+```javascript
 (function () {
   
   var blender = require('blender');
   blender.blend();
-
 
 }());
 ```
