@@ -1,6 +1,6 @@
-/*! lilprovider - v0.0.0 - 2012-10-26
+/*! lilprovider - v0.0.1 - 2012-11-18
  * https://github.com/gushov/lilprovider
- * Copyright (c) 2012 August Hovland <contact@augusthovland.com> Licensed MIT */
+ * Copyright (c) 2012 August Hovland <gushov@gmail.com> Licensed MIT */
 
 (function (ctx) {
 
@@ -66,3 +66,4 @@
   };
 
 }(this));
+ 
