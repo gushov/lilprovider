@@ -1,6 +1,6 @@
-/*! lilprovider - v0.0.2 - 2013-04-01
- * https://github.com/gushov/lilprovider
- * Copyright (c) 2013 August Hovland <gushov@gmail.com> Licensed MIT */
+ /*jshint curly:true, eqeqeq:true, immed:true, latedef:true,
+  newcap:true, noarg:true, sub:true, undef:true, boss:true,
+  strict:false, eqnull:true, browser:true, node:true */
 
 (function (ctx) {
 
@@ -32,9 +32,6 @@
     return from.concat(name).join('/');
 
   }
-
-  //@TODO handle provide/require/define already in scope
-  //@TODO make define a separte function
 
   ctx.define = function (name, definition) {
     return defined[name] = definition;
