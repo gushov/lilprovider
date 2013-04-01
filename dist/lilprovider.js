@@ -1,6 +1,6 @@
-/*! lilprovider - v0.0.1 - 2012-11-18
+/*! lilprovider - v0.0.2 - 2013-04-01
  * https://github.com/gushov/lilprovider
- * Copyright (c) 2012 August Hovland <gushov@gmail.com> Licensed MIT */
+ * Copyright (c) 2013 August Hovland <gushov@gmail.com> Licensed MIT */
 
 (function (ctx) {
 
@@ -8,6 +8,7 @@
 
   var defined = {};
   var exported = {};
+  var oldRequire = ctx.require;
 
   function resolve(from, name) {
 
@@ -33,15 +34,14 @@
   }
 
   //@TODO handle provide/require/define already in scope
+  //@TODO make define a separte function
 
-  ctx.provide = function (name, module, isDefinition) {
+  ctx.define = function (name, definition) {
+    return defined[name] = definition;
+  };
 
-    if (isDefinition) {
-      return defined[name] = module;
-    } else {
-      return exported[name] = module;
-    }
-
+  ctx.provide = function (name, module) {
+    return exported[name] = module;
   };
 
   ctx.require = function (path, canonical) {
@@ -51,7 +51,7 @@
 
     if (exported[name]) {
       return exported[name];
-    } else {
+    } else if (defined[name]){
 
       exports = exported[name] = {};
       module = { exports: exports };
@@ -61,6 +61,8 @@
 
       return (exported[name] = module.exports);
 
+    } else if (oldRequire(name)) {
+      return (exported[name] = oldRequire(name));
     }
 
   };

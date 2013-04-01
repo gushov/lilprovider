@@ -21,6 +21,17 @@ create and provide your module:
 
 }());
 ```
+or wrap your node module
+
+```javascript
+provide('blender', function (require, module, exports) {
+
+  module.exports = {
+    blend: function () {}
+  };
+
+});
+```
 
 then somewhere else require and use your module:
 
