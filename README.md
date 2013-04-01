@@ -45,5 +45,5 @@ then somewhere else require and use your module:
 ```
 
 ## License
-Copyright (c) 2012 August Hovland
+Copyright (c) 2013 August Hovland
 Licensed under the MIT license.
