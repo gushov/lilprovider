@@ -24,7 +24,7 @@ create and provide your module:
 or wrap your node module
 
 ```javascript
-provide('blender', function (require, module, exports) {
+define('blender', function (require, module, exports) {
 
   module.exports = {
     blend: function () {}
